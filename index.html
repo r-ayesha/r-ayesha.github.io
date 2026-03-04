@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayesha Rahman</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="assets/images/ayesha_logo.png">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <h1>Ayesha Rahman</h1>
+  </div>
+
+  <div class="header-right">
+    <a href="mailto:aayesharahman15@gmail.com" class="icon-link">
+      @
+    </a>
+
+    <a href="https://www.linkedin.com/in/ayesharhmn/" target="_blank" class="icon-link">
+      in
+    </a>
+  </div>
+</header>
+
+<div class="parallax-hero">
+  <h1 class="hero-name">Ayesha Rahman</h1>
+  <div class="hero-links">
+    <a href="mailto:aayesharahman15@gmail.com" class="hero-icon-link">@</a>
+    <a href="https://www.linkedin.com/in/ayesharhmn/" target="_blank" class="hero-icon-link">in</a>
+  </div>
+</div>
+
+<section class="about-section">
+  <h2>About Me</h2>
+
+  <div class="about-text">
+    <p>
+      Hello! I'm Ayesha, a sophomore studying Electrical and Computer Engineering at Cornell,
+      and I'm interested in all things hardware. I have over two years of professional
+      experience in programming, electronic development, and computer organization. Soon, I will
+      be engaging directly with VLSI, analog electronics, and ASIC design. 
+      I may not know everything, but I'm quick to execute and I love to learn.
+    </p>
+    <br>
+    <p>
+      On campus I contribute to the CSalt Electric Team, do research for Cornell University Sustainable Design,
+      and maintain broadcast systems for 93.5 WVBR-FM
+    </p>
+    <br>
+    <p>
+      Outside of academics, I'm a student worker, a nature enthusiast, and I love everything music,
+      film, gaming and art.
+    </p>
+    <br>
+    <p><em>In another life, I think I coded purely in assembly.</em></p>
+  </div>
+</section>
+
+<section>
+  <h2>Professional Experience</h2>
+
+  <div class="card">
+    <img src="assets/images/tria_logo.jpg" class="logo" />
+    <div class="content">
+      <h3>Tria Federal</h3>
+      <ul>
+        <li>Engineered a full-stack web application leveraging hospital price transparency data.</li>
+        <li>Developed a responsive Angular + TypeScript frontend for cost filtering and visualization.</li>
+        <li>Built Python + PostgreSQL pipelines to ingest and normalize complex pricing datasets.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Technical Experience</h2>
+
+  <div class="card">
+    <img src="assets/images/cusd_logo.jpg" class="logo" />
+    <div class="content">
+      <h3>Electrical Project Researcher — CUSD</h3>
+      <ul>
+        <li>Designed and stress-tested a 12V solar-powered lighting PCB system.</li>
+        <li>Integrated battery backup synced with TCAT Bus API data.</li>
+        <li>Performed oscilloscope bench testing and validation under variable loads.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="assets/images/csalt_logo.jpg" class="logo" />
+    <div class="content">
+      <h3>Electrical & Membrane Subteam — CSalt</h3>
+      <ul>
+        <li>Built wave-energy desalination prototype (Best Technical Design 2025 MECC).</li>
+        <li>Developed electrocoagulation pretreatment for microplastic mitigation.</li>
+        <li>Created sea-state simulation modeling pressure fluctuations.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="assets/images/wvbr_logo.jpg" class="logo" />
+    <div class="content">
+      <h3>93.5 WVBR Broadcast Operator</h3>
+      <ul>
+        <li>Maintained >99% station uptime and ensured FCC compliance.</li>
+        <li>Performed transmitter, tower, and studio inspections.</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <h2>Projects</h2>
+
+  <div class="project-layout">
+
+    <div class="project-text">
+      <h3>TinyRV1 Processor</h3>
+      <ul>
+        <li>Implemented single-cycle SystemVerilog processor modeled after RISC-V ISA.</li>
+        <li>Created directed, random, and X-propagation test benches.</li>
+        <li>Deployed on FPGA for real-time accelerator integration.</li>
+      </ul>
+      <p style="margin-top: 0.5rem;">View report <a href="assets/docs/tinyrv1_report.pdf" target="_blank" class="pdf-link">here</a></p>
+    </div>
+
+    <div>
+      <div class="slideshow">
+        <img src="assets/images/tinyrv1_img1.png" class="slide active">
+        <video src="assets/videos/tinyrv1_vid1.mov" class="slide" controls></video>
+        <img src="assets/images/tinyrv1_img2.png" class="slide">
+
+        <button class="arrow left" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="arrow right" onclick="changeSlide(1)">&#10095;</button>
+      </div>
+      <div class="caption" id="caption"></div>
+    </div>
+
+  </div>
+
+  <br><br>
+
+  <div class="project-layout">
+
+    <div class="project-text">
+      <h3>HPT+</h3>
+      <p><strong>Summer 2025</strong></p>
+      <ul>
+        <li>After 2021, all hospitals must be fully transparent with their pricing data, with a machine-readable format displaying every cost.</li>
+        <li>The issue is that this data isn't understandable or accesible for the average person</li>
+        <li>HPT+ addresses this by creating a website where users can search for their medical procedures within their area, and "shop" for the best option </li>
+      </ul>
+    </div>
+
+    <img src="assets/images/hpt_image1.jpg" class="project-image">
+  </div>
+
+</section>
+
+<section>
+  <h2>Upcoming</h2>
+  <p>Chip design experience coming soon!</p>
+</section>
+
+<section>
+  <h2>Courses</h2>
+  <p>
+    Digital Logic • Data Structures • Embedded Systems • Probability for Signals •
+    Electromagnetism • Analog Circuits • Linear Algebra • Differential Equations
+  </p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
