@@ -1,18 +1,22 @@
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slide");
-const caption = document.getElementById("caption");
+const slideIndexes = {};
 
-const captions = [
-  "",
-  "if you listen very closely you can hear jingle bells!",
-  ""
-];
+const captions = {
+  slideshow1: ["", "if you listen very closely you can hear jingle bells!", ""],
+  slideshow2: ["", ""]
+};
 
-function changeSlide(direction) {
-  slides[currentSlide].classList.remove("active");
+function changeSlide(direction, slideshowId) {
+  const slideshow = document.getElementById(slideshowId);
+  const slides = slideshow.querySelectorAll('.slide');
+  const captionEl = slideshow.nextElementSibling;
 
-  currentSlide = (currentSlide + direction + slides.length) % slides.length;
+  if (slideIndexes[slideshowId] === undefined) slideIndexes[slideshowId] = 0;
 
-  slides[currentSlide].classList.add("active");
-  caption.textContent = captions[currentSlide];
+  slides[slideIndexes[slideshowId]].classList.remove('active');
+  slideIndexes[slideshowId] = (slideIndexes[slideshowId] + direction + slides.length) % slides.length;
+  slides[slideIndexes[slideshowId]].classList.add('active');
+
+  if (captionEl && captionEl.classList.contains('caption')) {
+    captionEl.textContent = captions[slideshowId][slideIndexes[slideshowId]] || '';
+  }
 }

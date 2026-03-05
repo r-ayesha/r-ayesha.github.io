@@ -47,7 +47,7 @@
       I'm Ayesha, a sophomore studying Electrical and Computer Engineering at Cornell,
       and I'm interested in all things hardware. I have over two years of professional
       experience in programming, electronic development, and computer organization. Soon, I will
-      be engaging directly with VLSI, analog electronics, and ASIC design. 
+      be engaging directly with VLSI, analog electronics, and ASIC design.
     </p>
     <br>
     <p>
@@ -84,9 +84,10 @@
           </div>
       </div>
       <ul>
-        <li>Engineered a full-stack web application leveraging hospital price transparency data.</li>
+        <li>Engineered a full-stack web application using hospital price transparency data.</li>
         <li>Developed a responsive Angular + TypeScript frontend for cost filtering and visualization.</li>
         <li>Built Python + PostgreSQL pipelines to ingest and normalize complex pricing datasets.</li>
+        <li>Collaborated within an Agile workflow, leveraging Jira and Confluence for task tracking and documentation management.</li>
       </ul>
     </div>
   </div>
@@ -108,12 +109,14 @@
         </div>
       </div>
       <ul>
-        <li>Designed and stress-tested a 12V solar-powered lighting PCB system.</li>
+        <li>Working under Prof. Sirietta Simoncini to design and stress test a 12V solar-powered lighting system for a human-centered
+modular bus shelter using PCB-based LED arrays.</li>
         <li>Integrated battery backup synced with TCAT Bus API data.</li>
         <li>Performed oscilloscope bench testing and validation under variable loads.</li>
       </ul>
     </div>
   </div>
+
   <div class="card">
     <img src="assets/images/csalt_logo.jpg" class="logo" />
     <div class="content">
@@ -128,12 +131,15 @@
         </div>
       </div>
       <ul>
-        <li>Built wave-energy desalination prototype (Best Technical Design 2025 MECC).</li>
-        <li>Developed electrocoagulation pretreatment for microplastic mitigation.</li>
-        <li>Created sea-state simulation modeling pressure fluctuations.</li>
+        <li>Assembled and tested a wave-energy-powered desalination prototype, winning Best Technical Design (1st out of 22 teams) at
+the 2025 Marine Energy Collegiate Competition.</li>
+        <li>Led the design of a conceptual system integrating an oscillating surge Wave Energy Converter (WEC) with Reverse Osmosis desalination to produce potable water using renewable ocean wave energy</li>
+        <li>Created CAD-based conceptual models of the desalination system and mechanical interfaces between the WEC and membrane components.</li>
+
       </ul>
     </div>
   </div>
+
   <div class="card">
     <img src="assets/images/wvbr_logo.jpg" class="logo" />
     <div class="content">
@@ -150,30 +156,66 @@
       <ul>
         <li>Maintained >99% station uptime and ensured FCC compliance.</li>
         <li>Performed transmitter, tower, and studio inspections.</li>
+        <li>Virtualized the station’s stream encoder by deploying a Windows VM to replace an unstable legacy Windows 7 system </li>
+        <li>Configured Axia audio drivers and integrated an Icecast server to stabilize the online broadcast pipeline. </li>
+      
       </ul>
     </div>
   </div>
 </section>
-
 <section>
   <h2>Projects</h2>
+
   <div class="project-layout">
     <div class="project-text">
       <h3>TinyRV1 Processor</h3>
+      <p class="project-goal">Created a automatic door monitoring system via a functional single-cycle processor from scratch in SystemVerilog, modeled after the RISC-V ISA, and validate it through simulation and FPGA deployment.</p>
       <ul>
-        <li>Implemented single-cycle SystemVerilog processor modeled after RISC-V ISA.</li>
-        <li>Created directed, random, and X-propagation test benches.</li>
-        <li>Deployed on FPGA for real-time accelerator integration.</li>
+        <li>Implemented a TinyRV1 single-cycle RISC processor RTL in Verilog with full datapath, and 8 instructions control logic.</li>
+        <li>Integrated LIDAR distance sensors to detect motion, and included audio feedback through piezo buzzers.</li>
+        <li>Performed FPGA resource utilization analysis in Intel/Altera Quartus Prime, evaluating the architecural tradeoffs between general-purpose processors and specialized accelerators.</li>
+        <li>Developed 50+ lines of assembly to interface with sensors and control systems.</li>
+        <li>Integrated the processor into a full embedded system on the Cyclone DE0‑CV FPGA Board, connecting instruction/data memory, SPI loader, clock dividers, seven-segment displays, and sensor interface.</li>
+        <li>Created extensive directed, random, and X-propagation test benches.</li>
+
+
+        
+
       </ul>
-      <p style="margin-top: 0.5rem;">View report <a href="assets/docs/tinyrv1_report.pdf" target="_blank" class="pdf-link">here</a></p>
+      <i><p style="margin-top: 0.5rem;">View report </i><a href="assets/docs/tinyrv1_report.pdf" target="_blank" class="pdf-link">here</a></p>
     </div>
     <div>
-      <div class="slideshow">
+      <div class="slideshow" id="slideshow1">
         <img src="assets/images/tinyrv1_img1.png" class="slide active">
         <video src="assets/videos/tinyrv1_vid1.mov" class="slide" controls></video>
         <img src="assets/images/tinyrv1_img2.png" class="slide">
-        <button class="arrow left" onclick="changeSlide(-1)">&#10094;</button>
-        <button class="arrow right" onclick="changeSlide(1)">&#10095;</button>
+        <button class="arrow left" onclick="changeSlide(-1, 'slideshow1')">&#10094;</button>
+        <button class="arrow right" onclick="changeSlide(1, 'slideshow1')">&#10095;</button>
+      </div>
+      <div class="caption" id="caption"></div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="project-layout">
+    <div class="project-text">
+      <h3>Mobility Bus Shelter</h3>
+      <p class="project-goal">Designed a smart bus shelter system that integrates real-time transit data with dynamic LED lighting to improve rider awareness and modernize public transit infrastructure.</p>
+      <ul>
+        <li>Integrated real-time transit data by designing a microcontroller interface using an ESP32 to retrieve GTFS-Realtime bus arrival data from the Tompkins Consolidated Area Transit (TCAT) API and trigger dynamic LED color transitions.</li>
+        <li>Implemented a modular electrical architecture using pogo-pin power buses to enable “wireless” 12 V power and signal transfer between triangular shelter modules while reducing short-circuit risk in outdoor environments.</li>
+        <li>Designed and prototyped an Arduino-based RGB LED control circuit using N-channel MOSFET drivers and PWM signaling to control lighting for modular smart bus shelter panels.</li>
+        <li>Evaluated solar-powered energy budgets and reduced system power consumption by limiting LED-equipped modules while maintaining system visibility and functionality.</li>
+      </ul>
+      <i><p style="margin-top: 0.5rem;">View report </i><a href="assets/docs/mobility_report.pdf" target="_blank" class="pdf-link">here</a></p>
+    </div>
+    <div>
+      <div class="slideshow" id="slideshow2">
+        <img src="assets/images/cusd_shelter_design.png" class="slide active">
+        <img src="assets/images/cusd_circuit_schematic.png" class="slide">
+        <button class="arrow left" onclick="changeSlide(-1, 'slideshow2')">&#10094;</button>
+        <button class="arrow right" onclick="changeSlide(1, 'slideshow2')">&#10095;</button>
       </div>
       <div class="caption" id="caption"></div>
     </div>
@@ -184,12 +226,14 @@
   <div class="project-layout">
     <div class="project-text">
       <h3>HPT+</h3>
-      <p><strong>Summer 2025</strong></p>
+      <p class="project-goal">Make hospital pricing data accessible and understandable for everyday people by building a searchable platform where users can compare procedure costs across providers in their area.</p>
       <ul>
-        <li>After 2021, all hospitals must be fully transparent with their pricing data, with a machine-readable format displaying every cost.</li>
-        <li>The issue is that this data isn't understandable or accesible for the average person</li>
-        <li>HPT+ addresses this by creating a website where users can search for their medical procedures within their area, and "shop" for the best option</li>
+        <li>Developed a full-stack web application using Angular, Node.js, and PostgreSQL to make federally mandated hospital pricing data searchable and understandable for everyday users.</li>
+        <li>Built a procedure search and comparison interface enabling users to compare medical costs across hospitals in their geographic area.</li>
+        <li>Implemented RESTful backend APIs in Node.js to ingest and query large machine-readable hospital pricing datasets.</li>
+        <li>Integrated an AI-powered symptom-to-procedure search feature using Groq inference APIs and large language models to translate user-described symptoms into relevant medical procedures, improving search accessibility for non-technical users on the platform.</li>
       </ul>
+      <i><p style="margin-top: 0.5rem;">Read more about HPT </i><a href="https://www.softrams.com/our-work/hpt" target="_blank" class="pdf-link">here</a></p>
     </div>
     <img src="assets/images/hpt_image1.jpg" class="project-image">
   </div>

@@ -37,17 +37,17 @@ ul {
    LAYOUT STRUCTURE
 ========================= */
 section {
-  padding-top: 3.5rem;
+  padding-top: 0;
+  padding-right: 13%;
   padding-left: 13%;
-  padding-right: 8%;
+  padding-bottom: 3.5rem;
+
 
 }
 
-footer {
-  text-align: center;
-  padding: 2rem;
-  background: black;
-  color: var(--sub);
+
+section:last-of-type {
+  padding-bottom: 6rem;
 }
 
 /* =========================
@@ -110,6 +110,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  align-items: center;
 }
 
 .project-text { flex: 1; min-width: 300px; }
@@ -117,7 +118,8 @@ footer {
 .project-image {
   width: 400px;
   border-radius: 10px;
-}
+  object-fit: contain;
+} 
 
 /* =========================
    SLIDESHOW
@@ -126,13 +128,13 @@ footer {
   position: relative;
   width: 400px;
   height: 290px;
-  background: black;
+  background: white;
   border-radius: 10px;
   overflow: hidden;
 }
 
 .slideshow img,
-.slideshow video { width: 100%; height: 100%; object-fit: cover; display: none; }
+.slideshow video { width: 100%; height: 100%; object-fit: contain; display: none; }
 .slide.active { display: block; }
 
 .arrow {
