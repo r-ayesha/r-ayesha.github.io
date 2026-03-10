@@ -1,3 +1,29 @@
+// =========================
+// SIDEBAR
+// =========================
+const sectionIds = ['about', 'professional', 'technical', 'projects', 'upcoming', 'courses', 'tria', 'cusd', 'csalt', 'wvbr', 'tinyrv1', 'busshelter', 'hpt'];
+
+function highlightActive() {
+  let current = '';
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top <= 120) {
+      current = id;
+    }
+  });
+
+  document.querySelectorAll('.sidebar a').forEach(link => {
+    const href = link.getAttribute('href').replace('#', '');
+    link.classList.toggle('active', href === current);
+  });
+}
+
+window.addEventListener('scroll', highlightActive, { passive: true });
+highlightActive();
+
+// =========================
+// SLIDESHOW
+// =========================
 const slideIndexes = {};
 
 const captions = {
