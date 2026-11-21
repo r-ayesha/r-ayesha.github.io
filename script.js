@@ -1,48 +1,82 @@
-// =========================
-// SIDEBAR
-// =========================
-const sectionIds = ['about', 'professional', 'technical', 'projects', 'upcoming', 'courses', 'tria', 'cusd', 'csalt', 'wvbr', 'tinyrv1', 'busshelter', 'hpt'];
 
-function highlightActive() {
-  let current = '';
-  sectionIds.forEach(id => {
-    const el = document.getElementById(id);
-    if (el && el.getBoundingClientRect().top <= 120) {
-      current = id;
+ // "Last login" line
+(function () {
+  const now = new Date();
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const pad = n => String(n).padStart(2, '0');
+  const stamp = `${days[now.getDay()]} ${months[now.getMonth()]} ${now.getDate()} ` +
+                `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+
+  const login = document.getElementById('login');
+  if (login) {
+    login.textContent = `Last login: ${stamp} on ttys000`;
+  }
+})();
+
+// Expand/collapse entries ONLY when [+] is clicked
+document.querySelectorAll('.entry').forEach(entry => {
+  const summary = entry.querySelector('summary');
+  const button = entry.querySelector('.plus');
+
+  if (!summary || !button) return;
+
+  summary.addEventListener('click', e => {
+    // Allow company links to work normally
+    if (e.target.closest('a')) {
+      return;
+    }
+
+    // Prevent other summary clicks from toggling the entry
+    e.preventDefault();
+
+    // Only toggle when [+] is clicked
+    if (e.target.closest('.plus')) {
+      entry.open = !entry.open;
+
+      button.setAttribute('aria-expanded', entry.open);
+      button.setAttribute(
+        'aria-label',
+        entry.open ? 'Collapse entry' : 'Expand entry'
+      );
     }
   });
+});
 
-  document.querySelectorAll('.sidebar a').forEach(link => {
-    const href = link.getAttribute('href').replace('#', '');
-    link.classList.toggle('active', href === current);
-  });
-}
+// Expand/collapse all entries within a section
+document.querySelectorAll('.toggle-all').forEach(button => {
+  const section = document.getElementById(button.dataset.target);
+  const entries = section.querySelectorAll('.entry');
 
-window.addEventListener('scroll', highlightActive, { passive: true });
-highlightActive();
+  function updateButton() {
+    const allOpen = [...entries].every(entry => entry.open);
 
-// =========================
-// SLIDESHOW
-// =========================
-const slideIndexes = {};
-
-const captions = {
-  slideshow1: ["", "if you listen very closely you can hear jingle bells!", ""],
-  slideshow2: ["", ""]
-};
-
-function changeSlide(direction, slideshowId) {
-  const slideshow = document.getElementById(slideshowId);
-  const slides = slideshow.querySelectorAll('.slide');
-  const captionEl = slideshow.nextElementSibling;
-
-  if (slideIndexes[slideshowId] === undefined) slideIndexes[slideshowId] = 0;
-
-  slides[slideIndexes[slideshowId]].classList.remove('active');
-  slideIndexes[slideshowId] = (slideIndexes[slideshowId] + direction + slides.length) % slides.length;
-  slides[slideIndexes[slideshowId]].classList.add('active');
-
-  if (captionEl && captionEl.classList.contains('caption')) {
-    captionEl.textContent = captions[slideshowId][slideIndexes[slideshowId]] || '';
+    button.textContent = allOpen ? '[collapse all]' : '[expand all]';
+    button.setAttribute('aria-expanded', allOpen);
   }
-}
+
+  button.addEventListener('click', () => {
+    const allOpen = [...entries].every(entry => entry.open);
+
+    entries.forEach(entry => {
+      entry.open = !allOpen;
+
+      const plus = entry.querySelector('.plus');
+      if (plus) {
+        plus.setAttribute('aria-expanded', entry.open);
+        plus.setAttribute(
+          'aria-label',
+          entry.open ? 'Collapse entry' : 'Expand entry'
+        );
+      }
+    });
+
+    updateButton();
+  });
+
+  entries.forEach(entry => {
+    entry.addEventListener('toggle', updateButton);
+  });
+
+  updateButton();
+});
