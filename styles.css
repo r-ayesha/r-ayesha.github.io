@@ -192,8 +192,8 @@ a:hover { opacity: 0.8; }
   object-fit: contain;
 }
 
-/* Keep media aligned */
 .media {
+  padding-left: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -217,4 +217,23 @@ a:hover { opacity: 0.8; }
 
 .toggle-all:hover {
   color: var(--pink);
+}
+
+.about-intro {
+  position: relative;
+}
+
+.about-intro p {
+  margin-bottom: 1.1rem;
+}
+
+.ascii-art {
+  position: absolute;
+  top: -3.5rem;
+  right: 3.5rem;
+  font-family: "Ubuntu Mono", "DejaVu Sans Mono", monospace;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  color: var(--green);
+  margin: 0;
 }

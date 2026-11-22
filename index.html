@@ -28,9 +28,20 @@
         <p>
           hello!
         </p>
-        <p>
-          i'm ayesha, a electrical and computer engineering student at cornell.
-        </p>
+            <div class="about-intro">
+              <p>
+                i'm ayesha, a electrical and computer engineering student at cornell.
+              </p>
+
+              <pre class="ascii-art">
+            >(' )
+              )/
+              /(
+            /  `----/
+            \  ~=- /
+            ~^~^~^~^~^~^~^~
+              </pre>
+            </div>
         <p>
           i love learning about hardware and seeing how it interacts with software, and i hope to apply what i know to advance and better the world.
         </p>
@@ -158,49 +169,86 @@
     </section>
 
     <!-- ===================== PROJECTS ===================== -->
+    
     <section id="projects">
       <p class="cmd"><span class="ps">ayesha@cornell ~ %</span> ls projects</p>
       <p class="hint">
         click [+] on any entry to expand, or
         <button class="toggle-all" data-target="projects" type="button"> [expand all]</button>
       </p>
+
+      <details class="entry" id="bop-it">
+        <summary>
+          <span class="plus" aria-hidden="true"></span>
+          <span class="entry-body">
+            <span class="entry-name">bop-it</span>
+            <span class="entry-desc">developed an embedded bop-it game on the ARM Cortex-M0+ FRDM-KL46Z microcontroller, integrating capacitive touch, push-button, and accelerometer inputs with real-time LCD and RGB LED feedback.</span>
+          </span>
+        </summary>
+
+        <div class="detail">
+          <p class="cmd"><span class="ps">%</span> cat projects/bop-it/README.txt</p>
+          <ul>
+            <li>developed an embedded game in C on the ARM Cortex-M0+ FRDM-KL46Z, integrating GPIO, capacitive touch sensing (TSI), and MMA8451 accelerometer inputs over I2C.</li>
+            <li>implemented polled peripheral input handling alongside periodic interrupt-driven timing using the PIT, maintaining millisecond-level response deadlines and real-time input detection.</li>
+            <li>configured I2C communication with the MMA8451 accelerometer, reading six-axis output registers and implementing motion detection through baseline calibration and threshold-based acceleration processing.</li>
+            <li>designed an adaptive difficulty system using pseudo-random command generation and progressively decreasing response windows, with LCD prompts and RGB LED feedback for real-time user interaction.</li>
+            <li>debugged and stress-tested hardware interfaces, validating button debouncing, capacitive touch sensitivity, accelerometer thresholds, simultaneous inputs, and timing edge cases.</li>
+            <li>created extensive directed, random, and x-propagation test benches.</li>
+          </ul>
+
+          <p class="cmd"><span class="ps">%</span> cat projects/bop-it/report.txt</p>
+          <p class="report">
+            <i> view our page </i>
+            <a href="https://pages.github.coecis.cornell.edu/ece3140-spr2026/ak2676-ar2545-cb954/" target="_blank"> [here] </a>
+          </p>
+
+          <p class="cmd"><span class="ps">%</span> ls projects/bop-it/assets</p>
+          <div class="media">
+            <figure>
+              <video src="assets/videos/bop-it_vid.mov" controls></video>
+              <figcaption> > our high score is 23... i promise its way harder than it looks</figcaption>
+            </figure>
+            <img src="assets/images/bop-it_img.png" alt="bop-it image" loading="lazy">
+          </div>
+        </div>
+      </details>
+
       <details class="entry" id="tinyrv1">
         <summary>
           <span class="plus" aria-hidden="true"></span>
           <span class="entry-body">
             <span class="entry-name">tinyrv1/</span>
-            <span class="entry-role">tinyrv1 processor</span>
             <span class="entry-desc">created a automatic door monitoring system via a functional single-cycle processor from scratch in systemverilog, modeled after the risc-v isa, and validate it through simulation and fpga deployment.</span>
           </span>
         </summary>
 
-      <div class="detail">
-        <p class="cmd"><span class="ps">%</span> cat projects/tinyrv1/README.txt</p>
-        <ul>
-          <li>implemented a tinyrv1 single-cycle risc processor rtl in verilog with full datapath, and 8 instructions control logic.</li>
-          <li>integrated lidar distance sensors to detect motion, and included audio feedback through piezo buzzers.</li>
-          <li>performed fpga resource utilization analysis in intel/altera quartus prime, evaluating the architecural tradeoffs between general-purpose processors and specialized accelerators.</li>
-          <li>developed 50+ lines of assembly to interface with sensors and control systems.</li>
-          <li>integrated the processor into a full embedded system on the cyclone de0‑cv fpga board, connecting instruction/data memory, spi loader, clock dividers, seven-segment displays, and sensor interface.</li>
-          <li>created extensive directed, random, and x-propagation test benches.</li>
-        </ul>
+        <div class="detail">
+          <p class="cmd"><span class="ps">%</span> cat projects/tinyrv1/README.txt</p>
+          <ul>
+            <li>implemented a tinyrv1 single-cycle risc processor rtl in verilog with full datapath, and 8 instructions control logic.</li>
+            <li>integrated lidar distance sensors to detect motion, and included audio feedback through piezo buzzers.</li>
+            <li>performed fpga resource utilization analysis in intel/altera quartus prime, evaluating the architecural tradeoffs between general-purpose processors and specialized accelerators.</li>
+            <li>developed 50+ lines of assembly to interface with sensors and control systems.</li>
+            <li>integrated the processor into a full embedded system on the cyclone de0‑cv fpga board, connecting instruction/data memory, spi loader, clock dividers, seven-segment displays, and sensor interface.</li>
+            <li>created extensive directed, random, and x-propagation test benches.</li>
+          </ul>
 
-        <p class="cmd"><span class="ps">%</span> cat projects/tinyrv1/report.txt</p>
-        <p class="report">
-          <a href="assets/docs/tinyrv1_report.pdf" target="_blank">tinyrv1_report.pdf</a>
-        </p>
+          <p class="cmd"><span class="ps">%</span> cat projects/tinyrv1/report.txt</p>
+          <p class="report">
+            <a href="assets/docs/tinyrv1_report.pdf" target="_blank">tinyrv1_report.pdf</a>
+          </p>
 
-        <p class="cmd"><span class="ps">%</span> ls projects/tinyrv1/assets</p>
-        <div class="media">
-          <img src="assets/images/tinyrv1_img1.png" alt="tinyrv1 image 1" loading="lazy">
-          <figure>
-            <video src="assets/videos/tinyrv1_vid1.mov" controls></video>
-            <figcaption> > if you listen very closely you can hear jingle bells!</figcaption>
-          </figure>
-          <img src="assets/images/tinyrv1_img2.png" alt="tinyrv1 image 2" loading="lazy">
+          <p class="cmd"><span class="ps">%</span> ls projects/tinyrv1/assets</p>
+          <div class="media">
+            <img src="assets/images/tinyrv1_img1.png" alt="tinyrv1 image 1" loading="lazy">
+            <figure>
+              <video src="assets/videos/tinyrv1_vid1.mov" controls></video>
+              <figcaption> > if you listen very closely you can hear jingle bells!</figcaption>
+            </figure>
+            <img src="assets/images/tinyrv1_img2.png" alt="tinyrv1 image 2" loading="lazy">
+          </div>
         </div>
-      </div>
-
       </details>
 
       <details class="entry" id="bus-shelter">
@@ -208,7 +256,6 @@
           <span class="plus" aria-hidden="true"></span>
           <span class="entry-body">
             <span class="entry-name">bus-shelter/</span>
-            <span class="entry-role">mobility bus shelter</span>
             <span class="entry-desc">designed a smart bus shelter system that integrates real-time transit data with dynamic led lighting to improve rider awareness and modernize public transit infrastructure.</span>
           </span>
         </summary>
@@ -224,8 +271,8 @@
 
           <p class="cmd"><span class="ps">%</span> cat projects/bus-shelter/report.txt</p>
 
-          <p class="report"><i>view report </i><a href="assets/docs/mobility_report.pdf" target="_blank">here</a></p>
-
+          <p class="report">
+            <a href="assets/docs/mobility_report.pdf" target="_blank">mobility_report.pdf</a></p>
           <p class="cmd"><span class="ps">%</span> ls projects/bus-shelter/assets</p>
 
           <div class="media">
@@ -239,7 +286,6 @@
           <span class="plus" aria-hidden="true"></span>
           <span class="entry-body">
             <span class="entry-name">hpt/</span>
-            <span class="entry-role">hpt+</span>
             <span class="entry-desc">make hospital pricing data accessible and understandable for everyday people by building a searchable platform where users can compare procedure costs across providers in their area.</span>
           </span>
         </summary>
